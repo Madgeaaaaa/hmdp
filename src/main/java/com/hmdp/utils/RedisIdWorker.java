@@ -12,7 +12,9 @@ import java.time.format.DateTimeFormatter;
 @Component
 public class RedisIdWorker {
 
+    // 2022 年 1 月 1 日 0 点 0 分 0 秒（UTC）
     private static final long BEGIN_TIMESTAMP = 1640995200L;
+
     /**
      * 序列号的位数
      */
@@ -32,6 +34,7 @@ public class RedisIdWorker {
 
         // 2.生成序列号
         // 2.1获取当前日期，精确到天
+        // 以当天的时间戳为key, 防止一直自增下去
         String date = now.format(DateTimeFormatter.ofPattern("yyyy:MM:dd"));
         Long count = stringRedisTemplate.opsForValue().increment("icr:" + keyPrefix + ":" + date);
 

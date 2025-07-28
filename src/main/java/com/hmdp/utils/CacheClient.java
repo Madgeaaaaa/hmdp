@@ -24,7 +24,7 @@ public class CacheClient {
 
     private  final StringRedisTemplate stringRedisTemplate;
     private static final ExecutorService CACHE_REBUILD_EXECUTOR = Executors.newFixedThreadPool(10);
-
+    // 在Spring中，当一个Bean的构造函数需要参数的时候，pring 会自动从容器中查找 类型匹配的 Bean（这里是 StringRedisTemplate 类型的 Bean），并将其作为参数传入构造函数，完成成员变量的初始化。
     public CacheClient(StringRedisTemplate stringRedisTemplate) {
         this.stringRedisTemplate = stringRedisTemplate;
     }
