@@ -5,6 +5,7 @@ import com.hmdp.service.impl.ShopServiceImpl;
 import com.hmdp.utils.RedisIdWorker;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cache.caffeine.CaffeineCache;
 import org.springframework.data.geo.Circle;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Point;
@@ -64,6 +65,7 @@ class HmDianPingApplicationTests {
 
     @Test
     void loadShopData(){
+
         // 1.查询店铺信息
         List<Shop> list = shopService.list();
         // 2.将店铺分组，按照typeId进行分组，typeId一致的放到一个集合
