@@ -10,7 +10,7 @@ nginx-1.18.0   启动nginx.exe
 ## 后端环境部署
 在application.yaml文件中，Mysql、Redis、RabbitMQ相关的配置需要自行更改
 
-代码使用的Redis为3.2，推荐使用6.2以上
+代码使用的Redis为3.2，推荐使用6.2以上，只影响商铺GEO部分
 
 RabbitMQ版本为3.8
 
