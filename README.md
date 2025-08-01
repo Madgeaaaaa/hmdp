@@ -4,7 +4,7 @@
 项目简介:本项目是一个类似于大众点评等打卡类APP的点评类项目。实现了登陆、探店点评、优惠券秒杀、每日签到、好友关注、粉丝关注博主后，主动推送博主的相关博客等多个模块。项目可以分为用户模块、缓存模块、秒杀模块、订单模块以及限流模块。
 
 ## 克隆完整项目
-git clone https://github.com/Medgeaaaaa/hmdp.git
+git clone https://github.com/Madgeaaaaa/hmdp.git
 ## 前端环境部署
 nginx-1.18.0   启动nginx.exe    
 ## 后端环境部署
