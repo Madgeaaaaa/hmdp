@@ -65,11 +65,15 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
     @Override
     public Result seckillVoucher(Long voucherId) {
         //令牌桶算法 限流
-        if (!rateLimiter.tryAcquire(1000, TimeUnit.MILLISECONDS)){
-            return Result.fail("目前网络正忙，请重试");
-        }
+//        if (!rateLimiter.tryAcquire(1000, TimeUnit.MILLISECONDS)){
+//            return Result.fail("目前网络正忙，请重试");
+//        }
         //1.执行lua脚本
         Long userId = UserHolder.getUser().getId();
+
+        if(userId==null){
+            return Result.fail("需要登录");
+        }
 
         Long r = stringRedisTemplate.execute(
                 SECKILL_SCRIPT,
@@ -102,4 +106,5 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
         //2.7 返回订单id
         return Result.ok(orderId);
     }
+
 }
